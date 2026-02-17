@@ -1,0 +1,300 @@
+/* ─── Dashboard ─────────────────────────────────────────────────────────── */
+.dashboard-page {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.dashboard-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dashboard-card .stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-card .stat-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.summary-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.summary-stat {
+  flex: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: center;
+}
+
+/* ─── Leaderboard ───────────────────────────────────────────────────────── */
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.leaderboard-item:last-child { border-bottom: none; }
+
+.leaderboard-rank {
+  font-size: 1rem;
+  font-weight: 700;
+  width: 28px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.leaderboard-rank.gold { color: #f59e0b; }
+.leaderboard-rank.silver { color: #9ca3af; }
+.leaderboard-rank.bronze { color: #cd7f32; }
+
+.leaderboard-name { flex: 1; font-weight: 500; }
+
+.leaderboard-score {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ─── Streak Tracker ────────────────────────────────────────────────────── */
+.streak-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.streak-count {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--warning);
+}
+
+/* ─── Settings Page ─────────────────────────────────────────────────────── */
+.settings-page {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+  max-width: 640px;
+}
+
+.settings-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.settings-section h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* ─── Category Manager ──────────────────────────────────────────────────── */
+.category-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+}
+
+.category-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* ─── Audit Log ─────────────────────────────────────────────────────────── */
+.audit-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.audit-log-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.audit-log-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+/* ─── Presence Indicator ────────────────────────────────────────────────── */
+.presence-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  display: inline-block;
+}
+
+.presence-dot.offline { background: var(--text-muted); }
+
+.presence-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Quick Add Box ─────────────────────────────────────────────────────── */
+.quick-add-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 100ms ease;
+}
+
+.quick-add-box {
+  width: 520px;
+  max-width: 95vw;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideUp 150ms ease;
+}
+
+.quick-add-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.quick-add-input::placeholder { color: var(--text-muted); }
+
+.quick-add-preview {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-add-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: var(--bg-elevated);
+  border-radius: 99px;
+  font-size: 0.75rem;
+}
+
+.quick-add-hint {
+  padding: 8px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ─── Keyboard Shortcuts Modal ──────────────────────────────────────────── */
+.shortcuts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.shortcut-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 24px;
+  padding: 0 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ─── Toast Overrides ───────────────────────────────────────────────────── */
+.react-hot-toast {
+  font-family: var(--font-sans);
+}
+
+/* ─── Badge ─────────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-success { color: var(--success); background: var(--success-dim); }
+.badge-danger { color: var(--danger); background: var(--danger-dim); }
+.badge-warning { color: var(--warning); background: var(--warning-dim); }
+.badge-accent { color: var(--accent); background: var(--accent-dim); }
